@@ -192,19 +192,19 @@ func UpdateConfig(conf []conf.CollectConf) (err error) {
 	tailInfoMgr.m.Range(func(key, value interface{}) bool {
 		status := false
 		for _, oneConf := range conf {
-			if oneConf.LogPath == key.(string) {
+			if oneConf.LogPath == key {
 				status = true
 				break
 			}
 		}
 
 		if status == false {
-			val, ok := mm.Load(key.(string))
+			val, ok := mm.Load(key)
 			if !ok {
 				logs.Error("key has been delete")
 			} else {
 				val.(*TailInfo).exitChan <- 1
-				mm.Delete(key.(string))
+				mm.Delete(key)
 			}
 		}
 

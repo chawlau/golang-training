@@ -3,6 +3,8 @@ package ip
 import (
 	"fmt"
 	"net"
+
+	"github.com/astaxie/beego/logs"
 )
 
 var (
@@ -21,5 +23,5 @@ func init() {
 			}
 		}
 	}
-	fmt.Println("LocalIP ", LocalIP)
+	logs.Info("LocalIP ", LocalIP)
 }

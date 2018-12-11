@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/astaxie/beego/config"
+	"github.com/astaxie/beego/logs"
 )
 
 var (
@@ -104,7 +105,7 @@ func LoadConf(confType, fileName string) (err error) {
 	err = loadCollectConf(conf)
 
 	if err != nil {
-		fmt.Println("load collect conf failed err ", err)
+		logs.Error("load collect conf failed err ", err)
 		return
 	}
 

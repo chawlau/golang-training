@@ -63,7 +63,7 @@ func InitEtcd(addr, key string) (collectConf []conf.CollectConf, err error) {
 					logs.Error("unmarshal failed")
 					continue
 				}
-				fmt.Println("collect conf", collectConf)
+				logs.Info("collect conf", collectConf)
 			}
 		}
 	}
